@@ -1,1 +1,1 @@
-# lanangfood.github.io
+# lanangfood.com
