@@ -93,7 +93,7 @@ nav ul li a.active {
     background: none;
     border: none;
     padding: 10px;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 .hamburger span {
@@ -116,16 +116,17 @@ nav ul li a.active {
     nav ul {
         display: none;
         position: fixed;
-        top: 80px;  /* Positioned below the hamburger */
+        top: 80px;
         right: 20px;
         width: 200px;
-        background-color: rgba(255, 69, 46, 0.95);  /* Slightly transparent */
+        background-color: rgba(255, 69, 46, 0.95);
         flex-direction: column;
         padding: 20px;
-        border-radius: 15px;  /* Rounded corners */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);  /* Subtle shadow */
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         transition: 0.3s ease-in-out;
         transform: translateX(120%);
+        z-index: 9998; /* Added high z-index */
     }
 
     nav ul.active {
@@ -700,11 +701,6 @@ nav ul li a:hover::after {
 
 .content-section p {
     animation: slideFromRight 1s ease-out;
-}
-
-/* Logo rotation on hover */
-.logo img:hover {
-    animation: rotateIn 1s ease-out;
 }
 
 /* Mobile menu animation enhancement */
