@@ -66,13 +66,14 @@
                 <div class="content-section">
                     <h1>Lanang Food</h1>
                     <p>Sambal autentik berbahan premium, dengan aroma rempah!</p>
-                    <p>Coba sambal dari kami dengan rasa dan pedas menggiurkan dan sulit dilupakan .</p>
+                    <p>Coba sambal dari kami dengan rasa dan pedas menggiurkan dan sulit dilupakan.</p>
                     <a href="https://vt.tiktok.com/ZS6Qmq8ja/?page=Mall" class="buy-button">Beli Sekarang</a>
                 </div>
             </div>
-    
-            <h2 class="product-heading">Pilih Sambal Kesukaanmu</h2>
-            
+        </div>
+
+            <div class="product-section" >
+            <h2 class="product-heading">Pilih sambal kesukaanmu</h2>
             <div class="product-grid" id="products">
                 <div class="product-card">
                     <img src="./img/ayampanco.JPG" alt="Product 1">
@@ -96,6 +97,51 @@
                 </div>
             </div>
         </div>
+
+        <div class="testimonial-section">
+            <h2 class="testimonial-heading">Apa Kata Mereka?</h2>
+            
+            <div class="testimonial-container">
+                <button class="nav-button prev-button">&lt;</button>
+                
+                <div class="testimonial-wrapper">
+                    <div class="testimonial-card active">
+                        <img src="./img/testi1.jpg" alt="Sarah Amanda" class="testimonial-image">
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <p class="testimonial-text">"Sambal Cumi Kulinnya mantap banget! Pedesnya pas dan cuminya fresh. Recommended buat pecinta pedas!"</p>
+                        <h3 class="testimonial-name">I** N***</h3>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <img src="./img/testi2.jpg" alt="Budi Santoso" class="testimonial-image">
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <p class="testimonial-text">"Sambal Ayam Panco jadi favorit keluarga. Bumbunya meresap dan bikin nagih. Worth it banget!"</p>
+                        <h3 class="testimonial-name">D*** O*****</h3>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <img src="./img/testi3.jpg" alt="Linda Wijaya" class="testimonial-image">
+                        <div class="rating">
+                            ⭐⭐⭐⭐⭐
+                        </div>
+                        <p class="testimonial-text">"Sambal Teri Maco perfect buat pendamping nasi. Kriuk dan pedasnya pas. Packaging-nya juga bagus!"</p>
+                        <h3 class="testimonial-name">D** W*******</h3>
+                    </div>
+                </div>
+                
+                <button class="nav-button next-button">&gt;</button>
+            </div>
+            
+            <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
         <!-- Replace the existing footer with this code -->
 <footer class="main-footer">
     <div class="footer-content">
@@ -103,7 +149,7 @@
             <div class="footer-logo">
                 <img src="./img/logo.png" alt="Lanang Food Logo" class="footer-logo-img">
             </div>
-            <p>Sambal premium dengan rasa autentik</p>
+            <p>Sambal premium dengan rasa rempah autentik</p>
         </div>
         
         <div class="footer-section">
@@ -171,6 +217,48 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 }
             });
         });
+
+        // Testimonial Carousel functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    const prevButton = document.querySelector('.prev-button');
+    const nextButton = document.querySelector('.next-button');
+    let currentIndex = 0;
+
+    function showTestimonial(index) {
+        cards.forEach(card => {
+            card.classList.remove('active');
+        });
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
+
+        cards[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+
+    function nextTestimonial() {
+        currentIndex = (currentIndex + 1) % cards.length;
+        showTestimonial(currentIndex);
+    }
+
+    function prevTestimonial() {
+        currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+        showTestimonial(currentIndex);
+    }
+
+    // Event listeners
+    nextButton.addEventListener('click', nextTestimonial);
+    prevButton.addEventListener('click', prevTestimonial);
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            currentIndex = index;
+            showTestimonial(currentIndex);
+        });
+    });
+});
     </script>
 </body>
 </html>
