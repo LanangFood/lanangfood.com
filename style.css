@@ -57,7 +57,7 @@
 }
 
 .loader-logo {
-    width: 500px;
+    width: 350px;
     animation: bounceAndGlow 3s infinite;
     position: relative;
     z-index: 2;
@@ -118,6 +118,37 @@
     background: #D32F2F;
     border-radius: 50%;
     animation: falling 3s linear infinite;
+}
+/* Add this to your existing CSS */
+.loader-wrapper .hamburger {
+    display: none !important; /* Force hide hamburger when loader is active */
+}
+
+/* Modify your existing hamburger styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    z-index: 9999;
+    opacity: 0; /* Start with 0 opacity */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for appearance */
+}
+
+/* Show hamburger only after loader is gone */
+.loader-wrapper.fade-out ~ .wrapper .hamburger {
+    opacity: 1;
+}
+
+/* Keep your existing media query but add opacity transition */
+@media screen and (max-width: 768px) {
+    .hamburger {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
 }
 
 @keyframes flameAnimation {
