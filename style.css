@@ -56,12 +56,19 @@
     background: #FF5722;
 }
 
-.loader-logo {
-    width: 350px;
-    position: relative;
-    z-index: 2;
-    overflow: hidden;
+@media (max-width: 768px) {
+    .loader-logo {
+        position: relative;
+        top: -50px; /* Geser ke atas */
+        transform: translateY(-10%); /* Tambahkan untuk lebih presisi */
+    }
+
+    .loader-wrapper {
+        justify-content: flex-start; /* Posisikan konten lebih ke atas */
+        padding-top: 20%; /* Tambahkan ruang untuk memastikan cukup proporsional */
+    }
 }
+
 
 .loader-video {
     width: 100%;
