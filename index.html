@@ -9,17 +9,11 @@
 </head>
 <body>
     <div class="loader-wrapper">
-        <div class="floating-sambal" id="sambalContainer"></div>
         <div class="loader-content">
-            <div class="flame-container">
-                <div class="flame"></div>
-                <div class="flame"></div>
-                <div class="flame"></div>
-            </div>
-            <img src="./img/logo.png" alt="Lanang Food Logo" class="loader-logo">
-            <div class="spiciness-meter">
-                <div class="spiciness-fill"></div>
-            </div>
+            <video class="loader-logo loader-video" autoplay muted loop>
+                <source src="./img/logvid.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
         </div>
     </div>
 
@@ -213,18 +207,6 @@ function createSambalDrops() {
             for (let i = 0; i < numberOfDrops; i++) {
                 const drop = document.createElement('div');
                 drop.className = 'sambal-drop';
-                
-                // Posisi random untuk setiap tetesan
-                const randomX = Math.random() * 100;
-                const randomDelay = Math.random() * 3;
-                const randomDuration = 2 + Math.random() * 2;
-                
-                drop.style.left = `${randomX}%`;
-                drop.style.animationDelay = `${randomDelay}s`;
-                drop.style.animationDuration = `${randomDuration}s`;
-                drop.style.setProperty('--translateX', `${(Math.random() - 0.5) * 200}px`);
-                
-                container.appendChild(drop);
             }
         }
 
